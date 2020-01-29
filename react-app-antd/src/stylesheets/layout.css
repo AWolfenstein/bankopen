@@ -1,0 +1,32 @@
+#firstForm{
+    margin: 50px 5%;
+    display: flex;
+    justify-content: center;
+   
+}
+.IconRight{
+    margin: 116px 0;
+    margin-left: 25px;
+    margin-right: 25px;
+    
+}
+
+@media (max-width: 450px) {
+    #firstForm {
+        flex-direction: column;
+        justify-content: center;
+      }
+      .inputPlace.small{
+        width: 128px!important;
+    }
+      .IconRight{
+        margin: 25px 0;
+          
+          transform: rotate(90deg);
+      }
+    .testMedia:last-child {
+        align-self: flex-end;
+      }
+     
+     
+}

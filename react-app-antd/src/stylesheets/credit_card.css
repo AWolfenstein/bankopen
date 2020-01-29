@@ -1,0 +1,86 @@
+#creditCard{
+    min-width: 320px;
+    max-width: 344px;
+    border-radius: 16px;
+    border: none;
+    height: 246px;
+    background-color: #656d78;
+    position: relative;
+     z-index: 200;
+     box-shadow: 0 35px 25px -31px rgba(53,73,86,.35);
+}
+#personData{
+ 
+    min-width: 320px;
+    max-width: 344px;
+    top:-15px;
+    border-radius: 0px 0px 16px 16px;
+    box-shadow: 0 35px 25px -31px rgba(53,73,86,.35);
+}
+.inputPlace{
+    -moz-appearance: textfield;
+    height: 64px;
+    background-color: #fff;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 300;
+  
+}
+.inputPlace::-webkit-inner-spin-button { 
+    display: none;
+  }
+ .inputPlace.small{
+     width: 138px;
+ }
+#inlineCredit{
+    display: flex;
+    margin-top: 20px;
+   
+}
+.floating-label::selection{
+    background: transparent;
+    -moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+pointer-events: none;
+}
+.floating-label {
+    position: absolute;
+    bottom:-10px;
+    left: 20px;
+    transition: 0.2s ease all;
+    -moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+pointer-events: none;
+  }
+
+  input:focus ~ .floating-label,
+input:not([value=""]) ~ .floating-label{
+  bottom: 10px;
+  left: 20px;
+  font-size: 11px;
+  opacity: 1;
+  -moz-user-select: none;
+-khtml-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+pointer-events: none;
+}
+#TextNumOne{
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.ant-form-explain {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+.ant-form-item-with-help{
+margin-bottom: 21.5px;
+}
