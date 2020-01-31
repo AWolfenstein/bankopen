@@ -6,43 +6,93 @@ import Card_One from './cardOne';
 import Card_Two from './cardTwo';
 import Result_Block from './reusultBlock';
 import { Icon, Col, Form } from 'antd';
+import { getCardInfo, getCommisionInfo } from './methods';
 
 class Layout extends Component {
   constructor(props) {
 
     super(props);
     this.state = {
-      CardNumber2: '',
+      amount:0,
+      fee:{ fee:{}},
+      CardNumber: { issuer: {} },
+      CardNumber2: { issuer: {} }
+
     };
     this.updateDetails = this.updateDetails.bind(this);
-
+    this.abc = this.abc.bind(this);
   }
+
 
   updateDetails(event) {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
+
+    let card = event.target.value.replace(/\s+/g, '');
+    if (card.length < 8) {
+      this.setState({
+        [event.target.id]: { issuer: {} }
+      })
+    }
+
+    if (card.length == 8) {
+      let self = this;
+      getCardInfo(card, event, self)
+    }
   }
 
+componentDidMount(){
 
-  componentDidMount() {
+}
+  abc(event) {
+    
+    const { getFieldValue } = this.props.form;
+    let ammount = parseInt((event.target.value || '').replace(/\s+/g, ''));
+    let card2 = (getFieldValue("CardNumber2") || '').replace(/\s+/g, '');
+    let card = (getFieldValue("CardNumber") || '').replace(/\s+/g, '')
+     if(isNaN(ammount)===true){
+       this.setState({
+        fee:{ fee:{}}
+       })
+     }
+   
+    if (ammount >= 10 && ammount <= 140000
+      && card.length >= 16 && card2.length >= 16
+    ) {
 
-    // this.props.form.validateFields();
+
+      const Commision = {
+        amount: {
+          currency: "RUR",
+          value: ammount
+        },
+        destination_card: {
+          number: card2
+        },
+        is_masterpass: false,
+        source_card: {
+          number: card
+        }
+
+      };
+      let self =this;
+      getCommisionInfo(Commision,self);
+
+    }
   }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields({ force: true });
   };
   render() {
-
+    
     return (
 
       <Form layout="horizontal" id="firstForm" onSubmit={this.handleSubmit}>
-
         <Card_One
           cardNumberOneValue={this.state.cardNumberOneValue}
           form={this.props.form}
           CardNumber2={this.state.CardNumber2}
+          CardNumber={this.state.CardNumber}
           updateDetails={this.updateDetails}
         ></Card_One>
         <Icon type="right" className="IconRight" />
@@ -51,8 +101,13 @@ class Layout extends Component {
             form={this.props.form}
             CardNumber2={this.state.CardNumber2}
             updateDetails={this.updateDetails}
+            abc={this.abc}
           ></Card_Two>
-          <Result_Block></Result_Block>
+          <Result_Block 
+          form={this.props.form}
+          fee={this.state.fee}
+          amount={this.amount}
+          ></Result_Block>
         </Col>
 
       </Form>

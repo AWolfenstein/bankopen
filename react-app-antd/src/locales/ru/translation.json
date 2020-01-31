@@ -5,6 +5,7 @@
 "CVC2":"CVC2/CVV2",
 "Amount":"Сумма",
 "Transfer":"Перевести",
+"TrasferCardEror":"Перевод невозможен",
 "Commission":"Комисия",
 "TotalWithCommission":"Итого с комисией", 
 "Name":"Имя",
