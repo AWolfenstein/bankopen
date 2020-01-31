@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="26px" viewBox="0 0 42 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>Group 5 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2_adaptive" transform="translate(-251.000000, -357.000000)" fill-rule="nonzero">
+            <g id="Group-5-Copy" transform="translate(251.000000, 357.000000)">
+                <polygon id="Shape-Copy" fill="#FF5F00" points="15 23 26 23 26 3 15 3"></polygon>
+                <path d="M16.0426467,13 C16.0426467,8.85272727 17.9812613,5.16 21,2.77909091 C18.7918067,1.03818182 16.0064616,0 12.9786767,0 C5.81041613,0 0,5.82 0,13 C0,20.18 5.81041613,26 12.9786767,26 C16.0064616,26 18.7918067,24.9618182 21,23.2209091 C17.9812613,20.8409091 16.0426467,17.1472727 16.0426467,13" id="Shape-Copy-2" fill="#EC001B"></path>
+                <path d="M42,13 C42,20.18 36.1895839,26 29.0213233,26 C25.9935384,26 23.2072887,24.9618182 21,23.2209091 C24.0187387,20.8409091 25.9573533,17.1472727 25.9573533,13 C25.9573533,8.85272727 24.0187387,5.16 21,2.77909091 C23.2072887,1.03818182 25.9935384,0 29.0213233,0 C36.1886792,0 42,5.82 42,13" id="Shape-Copy-3" fill="#F89E1B"></path>
+            </g>
+        </g>
+    </g>
+</svg>

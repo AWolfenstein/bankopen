@@ -12,18 +12,6 @@ class Layout extends Component {
 
     super(props);
     this.state = {
-      cardNumberOneValue:'',
-      cardNumberTwoValue:'', 
-      CVVvalue:'',
-      DateValidValue:'',
-      summValue:'',
-      firstNameOneValue:'',
-      lastNameOneValue:'',
-      indexValue:'',
-      cityValue:'',
-      adressValue:'',
-      firstNameTwoValue:'',
-      lastNameTwoValue:'',
       CardNumber2: '',
     };
     this.updateDetails = this.updateDetails.bind(this);
@@ -43,7 +31,7 @@ class Layout extends Component {
   }
   handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields();
+    this.props.form.validateFields({ force: true });
   };
   render() {
 
@@ -52,6 +40,7 @@ class Layout extends Component {
       <Form layout="horizontal" id="firstForm" onSubmit={this.handleSubmit}>
 
         <Card_One
+          cardNumberOneValue={this.state.cardNumberOneValue}
           form={this.props.form}
           CardNumber2={this.state.CardNumber2}
           updateDetails={this.updateDetails}

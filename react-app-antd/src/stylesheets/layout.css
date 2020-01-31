@@ -12,12 +12,20 @@
 }
 
 @media (max-width: 450px) {
+  .bankImg{
+  right: 0px;
+  
+  }
+  #creditCard{
+    min-width: 300px!important;
+    max-width: 344px!important;
+   }
     #firstForm {
         flex-direction: column;
         justify-content: center;
       }
       .inputPlace.small{
-        width: 128px!important;
+        max-width: 138px!important;
     }
       .IconRight{
         margin: 25px 0;

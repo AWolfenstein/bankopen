@@ -1,78 +1,88 @@
 import 'antd/dist/antd.css';
 import React from 'react';
-import { Icon, Popover, Form, Input, Card } from 'antd';
+import {  Form, Input, Card } from 'antd';
 import '../stylesheets/credit_card.css';
-import {CreditsOne} from './creditsOne';
+import { CreditsOne } from './creditsOne';
+import InputMask from 'react-input-mask';
+import { withTranslation } from 'react-i18next';
+
+import {requiredFunc,validDateFunc} from './validFuncs';
+
+
 
 
 const Card_One = (props) => {
+  const { t } = props;
   const { getFieldDecorator } = props.form;
-  const creditCard = (<Card id="creditCard">
-    <div>
-      <Form.Item >
-        {getFieldDecorator('CardNumber', {
-          rules: [{
-            required: true, message: (
-              <Popover content="Card number" trigger="click" style={{ position: "absolute" }}>
-                <Icon
-                  type="message"
-                  style={{ position: "absolute", top: "8px", right: "5px" }}
-                /></Popover>
-            )
-          }],
-          validateTrigger: ['onBlur', 'onChange'],
-        })(
-          <Input type="number"  className="inputPlace" id="CardNumber" ></Input>
+  const creditCard = (
+    <Card id="creditCard" >
+      <img src={`${process.env.PUBLIC_URL}/img/banks/otkrytie.svg`} className="bankImg" />
+      <div>
+        <Form.Item >
+          {getFieldDecorator('CardNumber', {
+            rules: [{
+              validator(rule, value, callback) {
+                requiredFunc(value, callback);
+              }
+            }],
+            validateTrigger: ['onBlur', 'onChange'],
+          })(
+            <InputMask mask="9999 9999 9999 9999" maskChar={null} onChange={props.onChange} >
+              {(CardNumberProps) => <Input  {...CardNumberProps} className="inputPlace" id="CardNumber" ></Input>}
+            </InputMask>
+          )}
+          <span className="floating-label">{t('SenderCardNumber')}</span>
+        </Form.Item>
+      </div>
 
-        )}
-        <span className="floating-label">Card number</span>
-      </Form.Item>
-    </div>
+      <div id="inlineCredit">
+        <Form.Item >
+          {getFieldDecorator('DateValid', {
+            rules: [{
+              validator(rule, value, callback) {
+                requiredFunc(value, callback);
+                validDateFunc(value, callback);
+              }
 
-    <div id="inlineCredit">
-      <Form.Item >
-        {getFieldDecorator('DateValid', {
-          rules: [{
-            required: true, message: (
-              <Popover content="Date" trigger="click" style={{ position: "absolute" }}>
-                <Icon
-                  type="message"
-                  style={{ position: "absolute", top: "8px", right: "26px" }}
-                /></Popover>
+            }],
+            validateTrigger: ['onBlur', 'onChange'],
+          })(
+            <InputMask mask="99/99" maskChar={null} onChange={props.onChange} >
+              {(DateValidProps) => <Input id="DateValid" {...DateValidProps} className="inputPlace small"  />}
+            </InputMask>
+          )}
+          <span className="floating-label">{t('Validity')}</span>
+        </Form.Item>
+        <div style={{width:"20px"}}></div>
+        <Form.Item >
+          {getFieldDecorator('CVC2', {
+            rules: [{
+              validator(rule, value, callback) {
+                requiredFunc(value, callback);
+              }
+            }],
+            validateTrigger: ['onBlur', 'onChange'],
+          })(
+            <InputMask mask="999" maskChar={null} onChange={props.onChange} >
+              {(CVC2Props) => <Input {...CVC2Props} id="CVC2" style={{ WebkitTextSecurity: "disc" }} className="inputPlace small" />}
+            </InputMask>
+          )}
+          <span className="floating-label">{t('CVC2')}</span>
+        </Form.Item>
 
-            )
-          }],
-          validateTrigger: ['onBlur', 'onChange'],
-        })(
-          <Input id="DateValid" type="number"  className="inputPlace small" style={{ marginRight: "20px" }} />
-        )}
-        <span className="floating-label">01/22</span>
-      </Form.Item>
-      <Form.Item >
-        {getFieldDecorator('CVC2', {
-          rules: [{
-            required: true, message: (
-              <Popover content="CVC2/CVV2" trigger="click" style={{ position: "absolute" }}>
-                <Icon
-                  type="message"
-                  style={{ position: "absolute", top: "8px", right: "5px" }}
-                /></Popover>
-            )
-          }],
-          validateTrigger: ['onBlur', 'onChange'],
-        })(
-          <Input id="CVC2" type="number" className="inputPlace small" />
-        )}
-        <span className="floating-label">CVC2/CVV2</span>
-      </Form.Item>
-    </div>
-  </Card>)
+
+      </div>
+      <br></br>
+      <img src={`${process.env.PUBLIC_URL}/img/paymentSystems/visa.svg`} className="paySysImg" />
+
+    </Card>
+  )
 
   return (
     <div className="testMedia">
       {creditCard}
-      {props.CardNumber2 !== null && props.CardNumber2 !== ''? (<CreditsOne form={props.form}></CreditsOne>) : undefined}
+      {props.CardNumber2 !== null && props.CardNumber2 !== '' ? (<CreditsOne form={props.form}></CreditsOne>) : undefined}
     </div>
   )
 }
-export default Card_One;
+export default withTranslation()(Card_One);

@@ -1,14 +1,16 @@
 .divResults{
+    max-width: 346px;
     margin-top: 20px;
     /* margin-left: auto; */
     /* margin-right: 10px; */
     text-align: right;
 }
 .divResultClick{
+    max-width: 346px;
     margin-top: 20px;
     display: flex;
 }
 .TextCondition{
- margin-right: 20px;
+ margin-right: 15px;
     width: 160px;
 }

@@ -1,70 +1,70 @@
 import 'antd/dist/antd.css';
 import React from 'react';
-import { Icon, Popover, Form, Input, Card } from 'antd';
+import {  Form, Input, Card } from 'antd';
 import '../stylesheets/credit_card.css';
-import {CreditsTwo} from './creditsTwo';
-
-const Card_Two = ({ updateDetails, form, CardNumber2 }) => {
-  const { getFieldDecorator } = form;
-
-
+import { CreditsTwo } from './creditsTwo';
+import InputMask from 'react-input-mask';
+import { withTranslation } from 'react-i18next';
+import {requiredFunc,validAmountFunc} from './validFuncs';
+const Card_Two = (props) => {
+  const{t}=props;
+  const { getFieldDecorator } = props.form;
   const creditCard2 = (
     <Card id="creditCard">
+      <img src={`${process.env.PUBLIC_URL}/img/banks/alfabank.svg`} className="bankImg" />
       <div>
         <Form.Item >
           {getFieldDecorator('CardNumber2', {
             rules: [{
-              required: true, message: (
-                <Popover content="Card number" trigger="click" style={{ position: "relative" }}>
-                  <Icon
-                    type="message"
-                    style={{ position: "absolute", top: "8px", right: "5px" }}
-                  /></Popover>
-              )
+              validator(rule, value, callback) {
+                requiredFunc(value, callback);
+              }
             }],
             validateTrigger: ['onBlur', 'onChange'],
           })(
-            <Input type="number" id="CardNumber2" onChange={updateDetails} className="inputPlace" />
+            <InputMask mask="9999 9999 9999 9999" maskChar={null} onChange={props.updateDetails} >
+              {(CardNumber2Props) => <Input  {...CardNumber2Props} className="inputPlace" id="CardNumber2" ></Input>}
+            </InputMask>
           )}
-          <span className="floating-label">Card number</span>
+          <span className="floating-label">{t('RecipientCardNumber')}</span>
         </Form.Item>
+        <img src={`${process.env.PUBLIC_URL}/img/flags/by.svg`} className="flagsImg" />
       </div>
-      <div>
+      <div style={{maxWidth:"138px"}}>
         <Form.Item >
           {getFieldDecorator('Sum', {
             rules: [{
-              required: true, message: (
-                <Popover content="Summ" trigger="click" style={{ position: "absolute" }}>
-                  <Icon
-                    type="message"
-                    style={{ position: "absolute", top: "8px" ,right: "5px", marginRight: "157px"}}
-                  /></Popover>
-              )
+              validator(rule, value, callback) {
+                requiredFunc(value, callback);
+                validAmountFunc(value, callback);
+              }
             }],
             validateTrigger: ['onBlur', 'onChange'],
           })(
-            <Input type="number" className="inputPlace small" />
+            <InputMask mask="999 999" maskChar={null}  >
+              {(SummProps) => <Input  {...SummProps} className="inputPlace small" />}
+            </InputMask>
           )}
-          <span className="floating-label">Sum P</span>
+          <span className="floating-label">{t('Amount')}</span>
         </Form.Item>
+       
       </div>
       <div id="TextNumOne">
-        Переводы возможны на карты
+      {t('textone')}
         <br></br>
-        Российской Федерации и за рубежом
-        </div>
+        {t('texttwo')}
+        <img src={`${process.env.PUBLIC_URL}/img/paymentSystems/mastercard.svg`} className="paySysImg" />
+      </div>
 
     </Card>
 
   )
 
-
-
   return (
     <div className="testMedia">
       {creditCard2}
-      {CardNumber2 !== null && CardNumber2 !== ''? (<CreditsTwo form={form}></CreditsTwo>) : undefined}
+      {props.CardNumber2 !== null && props.CardNumber2 !== '' ? (<CreditsTwo form={props.form}></CreditsTwo>) : undefined}
     </div>
   )
 }
-export default Card_Two;
+export default withTranslation()(Card_Two);

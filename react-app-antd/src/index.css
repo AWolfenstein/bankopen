@@ -1,9 +1,15 @@
+@font-face {
+  font-family: Whitney; /* Имя шрифта */
+  src: url(fonts/whitney-light.otf); /* Путь к файлу со шрифтом */
+ }
+ img { pointer-events: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
 body {
+  
   background: rgb(237, 245, 253)!important;
   margin: 0;
   padding: 0;
   
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, BlinkMacSystemFont, "Whitney", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
