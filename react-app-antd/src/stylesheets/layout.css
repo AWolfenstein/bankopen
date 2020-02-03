@@ -11,18 +11,71 @@
     
 }
 
-@media (max-width: 450px) {
+@media (max-width: 320px) {
   .bankImg{
   right: 0px;
   
   }
   #creditCard{
-    min-width: 300px!important;
-    max-width: 344px!important;
+    min-width: 200px!important;
+    max-width:300px!important;
+    display: flex!important;
+   }
+   .floating-label{
+     font-size: 12px!important;
+   }
+   .inputPlace{
+    font-size: 18px!important;
+
+    max-width: 300px!important;
+   }
+   #personData{
+    min-width: 200px!important;
+    max-width: 300px!important;
+   
    }
     #firstForm {
         flex-direction: column;
-        justify-content: center;
+        justify-content: center!important;;
+      }
+      .inputPlace.small{
+        max-width: 138px!important;
+    }
+      .IconRight{
+        margin: 25px 0;
+          
+          transform: rotate(90deg);
+      }
+    .testMedia:last-child {
+        align-self: flex-end;
+      }
+     
+     
+}
+
+@media (max-width: 450px) {
+  
+  #creditCard{
+    min-width: 200px!important;
+    max-width:340px!important;
+  
+   }
+   .floating-label{
+     font-size: 12px!important;
+   }
+   .inputPlace{
+    font-size: 18px!important;
+
+    
+   }
+   #personData{
+    min-width: 200px!important;
+    max-width: 340px!important;
+   
+   }
+    #firstForm {
+        flex-direction: column;
+        justify-content: center!important;;
       }
       .inputPlace.small{
         max-width: 138px!important;

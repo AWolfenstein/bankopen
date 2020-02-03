@@ -13,11 +13,11 @@ class Layout extends Component {
 
     super(props);
     this.state = {
-      amount:0,
-      fee:{ fee:{}},
+      amount: 0,
+      fee: { fee: {} },
       CardNumber: { issuer: {} },
-      CardNumber2: { issuer: {} }
-
+      CardNumber2: { issuer: {} },
+      mask:'999 999'
     };
     this.updateDetails = this.updateDetails.bind(this);
     this.abc = this.abc.bind(this);
@@ -39,23 +39,66 @@ class Layout extends Component {
     }
   }
 
-componentDidMount(){
+  componentDidMount() {
 
-}
+  }
   abc(event) {
-    
+    const Flag = this.state.CardNumber2.country_code;
     const { getFieldValue } = this.props.form;
     let ammount = parseInt((event.target.value || '').replace(/\s+/g, ''));
     let card2 = (getFieldValue("CardNumber2") || '').replace(/\s+/g, '');
     let card = (getFieldValue("CardNumber") || '').replace(/\s+/g, '')
-     if(isNaN(ammount)===true){
-       this.setState({
-        fee:{ fee:{}}
-       })
-     }
+    function countDigits(ammount) {
+      for( var i = 0; ammount > 1; i++) {
+        ammount /= 10;
+      }
+      return i;
+   }
+   let count =countDigits(ammount);
    
-    if (ammount >= 10 && ammount <= 140000
-      && card.length >= 16 && card2.length >= 16
+    if(count <= 3){
+   
+      this.setState({
+        mask: "999 999"
+      })
+    }
+    if(count == 4){
+      this.setState({
+        mask: "9 99999"
+      })
+    }
+    if(count == 5){
+      this.setState({
+        mask: "99 9999"
+      })
+    }
+    if(count == 6){
+      this.setState({
+        mask: "999 999"
+      })
+    }
+    if (Flag != "RUS" && ammount <= 100000) {
+      this.setState({
+        fee: { fee: {} }
+      })
+    }else if (Flag == "RUS" && ammount <= 140000) {
+      this.setState({
+        fee: { fee: {} }
+      })
+    }
+    if (ammount >= 10) {
+      this.setState({
+        fee: { fee: {} }
+      })
+    }
+
+    if (isNaN(ammount) === true) {
+      this.setState({
+        fee: { fee: {} }
+      })
+    }
+
+    if (ammount >= 10 && card.length >= 16 && card2.length >= 16
     ) {
 
 
@@ -73,8 +116,14 @@ componentDidMount(){
         }
 
       };
-      let self =this;
-      getCommisionInfo(Commision,self);
+      let self = this;
+
+      if (Flag != "RUS" && ammount <= 100000) {
+        getCommisionInfo(Commision, self);
+      }else if (Flag == "RUS" && ammount <= 140000) {
+        getCommisionInfo(Commision, self);
+      }
+     
 
     }
   }
@@ -84,7 +133,7 @@ componentDidMount(){
     this.props.form.validateFields({ force: true });
   };
   render() {
-    
+
     return (
 
       <Form layout="horizontal" id="firstForm" onSubmit={this.handleSubmit}>
@@ -102,11 +151,13 @@ componentDidMount(){
             CardNumber2={this.state.CardNumber2}
             updateDetails={this.updateDetails}
             abc={this.abc}
+            mask={this.state.mask}
           ></Card_Two>
-          <Result_Block 
-          form={this.props.form}
-          fee={this.state.fee}
-          amount={this.amount}
+          <Result_Block
+            form={this.props.form}
+            fee={this.state.fee}
+            amount={this.amount}
+            CardNumber2={this.state.CardNumber2}
           ></Result_Block>
         </Col>
 

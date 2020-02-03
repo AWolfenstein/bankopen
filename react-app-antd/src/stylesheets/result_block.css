@@ -4,6 +4,13 @@
     /* margin-left: auto; */
     /* margin-right: 10px; */
     text-align: right;
+    font-family: "Whitney";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum","tnum","tnum";
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    color:#838fa0
 }
 .divResultClick{
     max-width: 346px;
@@ -13,4 +20,7 @@
 .TextCondition{
  margin-right: 15px;
     width: 160px;
+}
+.summ{
+    color:black;
 }

@@ -1,7 +1,8 @@
 @font-face {
-  font-family: Whitney; /* Имя шрифта */
-  src: url(fonts/whitney-light.otf); /* Путь к файлу со шрифтом */
- }
+  font-family: "Whitney";
+  src: url("fonts/Whitney-Book-ProGkCy.otf") format("opentype");
+}
+
  img { pointer-events: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
 body {
   
@@ -9,14 +10,14 @@ body {
   margin: 0;
   padding: 0;
   
-  font-family: -apple-system, BlinkMacSystemFont, "Whitney", "Roboto", "Oxygen",
+  font-family: "Whitney",-apple-system, BlinkMacSystemFont,  "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: "Whitney",antialiased;
+  -moz-osx-font-smoothing: "Whitney",grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: "Whitney",source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

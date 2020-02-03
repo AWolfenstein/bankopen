@@ -10,12 +10,7 @@ export const CreditsOne = (props) => {
 
   const { t } = useTranslation();
 
-  function changeFirstname(event) {
-    if (event.target.value === "" || event.target.value === ! ' ') {
-      alert("Только латиница и без пробелов")
-    }
-  }
-
+ 
   const { getFieldDecorator } = props.form;
   return (
     <Card id="personData">
@@ -30,9 +25,9 @@ export const CreditsOne = (props) => {
               }],
             validateTrigger: ['onBlur', 'onChange'],
           })(
-            <InputMask mask="aaaaaaaaaaaaaaaaaaaaaaa" maskChar={null} onChange={changeFirstname} >
-              {(FnameProps) => <Input {...FnameProps} id="firstName" className="inputPlace" ></Input>}
-            </InputMask>
+          
+               <Input  id="firstName" className="inputPlace" ></Input>
+             
 
           )}
           <span className="floating-label">{t('Name')}</span>
@@ -50,9 +45,9 @@ export const CreditsOne = (props) => {
             }],
             validateTrigger: ['onBlur', 'onChange'],
           })(
-            <InputMask mask="aaaaaaaaaaaaaaaaaaaaaaa" maskChar={null}  >
-              {(LnameProps) => <Input {...LnameProps} className="inputPlace" ></Input>}
-            </InputMask>
+      
+             <Input  className="inputPlace" ></Input>
+        
 
           )}
           <span className="floating-label">{t('Surname')}</span>

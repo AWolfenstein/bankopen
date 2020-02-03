@@ -6,7 +6,7 @@ import { CreditsOne } from './creditsOne';
 import InputMask from 'react-input-mask';
 import { withTranslation } from 'react-i18next';
 
-import {requiredFunc,validDateFunc,validCardFunc} from './validFuncs';
+import {requiredFunc,validDateFunc,validCardFunc,validCardRUSFunc} from './validFuncs';
 
 const Card_One = (props) => {
   const { t } = props;
@@ -27,6 +27,7 @@ const Card_One = (props) => {
               validator(rule, value, callback) {
                 requiredFunc(value, callback);
                 validCardFunc(value, callback);
+                validCardRUSFunc(Flag, callback)
               }
             }],
             validateTrigger: ['onBlur', 'onChange'],

@@ -47,6 +47,13 @@ user-select: none;
 pointer-events: none;
 }
 .floating-label {
+    font-family: "Whitney";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum","tnum","tnum";
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    color:#838fa0;
     position: absolute;
     bottom:-10px;
     left: 15px;
@@ -60,6 +67,13 @@ pointer-events: none;
 
   input:focus ~ .floating-label,
 input:not([value=""]) ~ .floating-label{
+    font-family: "Whitney";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum","tnum","tnum";
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    color:#838fa0;
   bottom: 10px;
   left: 14px;
   font-size: 11px;
