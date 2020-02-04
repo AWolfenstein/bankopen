@@ -3,21 +3,23 @@
   src: url("fonts/Whitney-Book-ProGkCy.otf") format("opentype");
 }
 
- img { pointer-events: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none; }
+img {
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 body {
-  
   background: rgb(237, 245, 253)!important;
   margin: 0;
   padding: 0;
-  
-  font-family: "Whitney",-apple-system, BlinkMacSystemFont,  "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: "Whitney",antialiased;
-  -moz-osx-font-smoothing: "Whitney",grayscale;
+  font-family: "Whitney", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: "Whitney", antialiased;
+  -moz-osx-font-smoothing: "Whitney", grayscale;
 }
 
 code {
-  font-family: "Whitney",source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Whitney", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

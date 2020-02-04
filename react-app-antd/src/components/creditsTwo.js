@@ -1,59 +1,55 @@
-import 'antd/dist/antd.css';
-import React from 'react';
-import { Form, Input, Card } from 'antd';
-import '../stylesheets/credit_card.css';
-import InputMask from 'react-input-mask';
-import { useTranslation } from 'react-i18next';
+import React from "react";
+import { Form, Input, Card } from "antd";
+import { useTranslation } from "react-i18next";
 
-import {requiredFunc,validLangFunc} from './validFuncs';
+import { requiredFunc, validLangFunc } from "./validFuncs";
 
-export const CreditsTwo = (props) => {
-    const { t } = useTranslation();
-    const {getFieldDecorator} = props.form;
-    
-    return (
-        <Card id="personData">
-            <div>
-                <Form.Item >
-                    {getFieldDecorator('firstName2', {
-                          rules: [{
-                            validator(rule, value, callback) {
-                              requiredFunc(value, callback);
-                              validLangFunc(value, callback);
-                            }
-                          }],
-                        validateTrigger: ['onBlur', 'onChange'],
-                    })(
-                        <InputMask mask="aaaaaaaaaaaaaaaaaaaaaaa" maskChar={null}  >
-              {(Fname2Props) =><Input {...Fname2Props} className="inputPlace" ></Input>}
-              </InputMask>
+import "antd/dist/antd.css";
+import "../stylesheets/credit_card.css";
 
-                    )}
-                    <span className="floating-label">{t('Name')}</span>
-                </Form.Item>
-            </div>
+export const CreditsTwo = props => {
+  const { t } = useTranslation();
+  const { getFieldDecorator } = props.form;
 
-            <div>
-                <Form.Item >
-                    {getFieldDecorator('lastName2', {
-                         rules: [{
-                            validator(rule, value, callback) {
-                              requiredFunc(value, callback);
-                              validLangFunc(value, callback);
-                            }
-                          }],
-                        validateTrigger: ['onBlur', 'onChange'],
-                    })(
-                        <InputMask mask="aaaaaaaaaaaaaaaaaaaaaaa" maskChar={null}  >
-                        {(Lname2Props) =><Input {...Lname2Props} className="inputPlace" ></Input>}
-                        </InputMask>
+  return (
+    <Card id="personData">
+      <div>
+        <Form.Item>
+          {getFieldDecorator("firstName2", {
+            rules: [
+              {
+                validator(rule, value, callback) {
+                  requiredFunc(value, callback);
+                  validLangFunc(value, callback);
+                }
+              }
+            ],
+            validateTrigger: ["onBlur", "onChange"]
+          })(
+                <Input className="inputPlace"></Input>
+          )}
+          <span className="floating-label">{t("Name")}</span>
+        </Form.Item>
+      </div>
 
-                    )}
-                    <span className="floating-label">{t('Surname')}</span>
-                </Form.Item>
-            </div>
-
-
-        </Card>
-    )
-}
+      <div>
+        <Form.Item>
+          {getFieldDecorator("lastName2", {
+            rules: [
+              {
+                validator(rule, value, callback) {
+                  requiredFunc(value, callback);
+                  validLangFunc(value, callback);
+                }
+              }
+            ],
+            validateTrigger: ["onBlur", "onChange"]
+          })(
+                <Input className="inputPlace"></Input>
+          )}
+          <span className="floating-label">{t("Surname")}</span>
+        </Form.Item>
+      </div>
+    </Card>
+  );
+};

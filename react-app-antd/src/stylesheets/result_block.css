@@ -1,4 +1,4 @@
-.divResults{
+.divResults {
     max-width: 346px;
     margin-top: 20px;
     /* margin-left: auto; */
@@ -7,20 +7,23 @@
     font-family: "Whitney";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "tnum","tnum","tnum";
-    font-size:16px;
-    -webkit-font-smoothing:antialiased;
-    color:#838fa0
+    font-feature-settings: "tnum", "tnum", "tnum";
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    color: #838fa0
 }
-.divResultClick{
+
+.divResultClick {
     max-width: 346px;
     margin-top: 20px;
     display: flex;
 }
-.TextCondition{
- margin-right: 15px;
+
+.TextCondition {
+    margin-right: 15px;
     width: 160px;
 }
-.summ{
-    color:black;
+
+.summ {
+    color: black;
 }
