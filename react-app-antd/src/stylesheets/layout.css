@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 320px) {
-  .bankImg {
+  .bankImage {
     right: 0px;
   }
   #creditCard {

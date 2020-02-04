@@ -123,7 +123,7 @@ input:focus~.floating-label, input:not([value=""])~.floating-label {
     box-sizing: content-box;
 }
 
-.bankImg {
+.bankImage {
     position: absolute;
     width: 296px;
     height: 234px;

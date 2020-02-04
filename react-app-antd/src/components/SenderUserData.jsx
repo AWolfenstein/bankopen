@@ -1,108 +1,104 @@
-import React from "react";
-import { Form, Input, Card } from "antd";
-import InputMask from "react-input-mask";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import { Form, Input, Card } from 'antd';
+import InputMask from 'react-input-mask';
+import { useTranslation } from 'react-i18next';
 
-import { requiredFunc, validLangFunc } from "./validFuncs";
+import { requiredFunc, validLangFunc } from './validFuncs';
 
-import "antd/dist/antd.css";
-import "../stylesheets/credit_card.css";
+import 'antd/dist/antd.css';
+import '../stylesheets/credit_card.css';
 
-export const CreditsOne = props => {
+export const SenderUserData = props => {
   const { t } = useTranslation();
   const { getFieldDecorator } = props.form;
   return (
     <Card id="personData">
-
       <div>
         <Form.Item>
-          {getFieldDecorator("firstName", {
+          {getFieldDecorator('firstName', {
             rules: [
               {
                 validator(rule, value, callback) {
                   requiredFunc(value, callback);
                   validLangFunc(value, callback);
-                }
-              }
+                },
+              },
             ],
-            validateTrigger: ["onBlur", "onChange"]
+            validateTrigger: ['onBlur', 'onChange'],
           })(<Input id="firstName" className="inputPlace"></Input>)}
-          <span className="floating-label">{t("Name")}</span>
+          <span className="floating-label">{t('Name')}</span>
         </Form.Item>
       </div>
 
       <div>
         <Form.Item>
-          {getFieldDecorator("lastName", {
+          {getFieldDecorator('lastName', {
             rules: [
               {
                 validator(rule, value, callback) {
                   requiredFunc(value, callback);
                   validLangFunc(value, callback);
-                }
-              }
+                },
+              },
             ],
-            validateTrigger: ["onBlur", "onChange"]
+            validateTrigger: ['onBlur', 'onChange'],
           })(<Input className="inputPlace"></Input>)}
-          <span className="floating-label">{t("Surname")}</span>
+          <span className="floating-label">{t('Surname')}</span>
         </Form.Item>
       </div>
 
       <div id="inlineCredit">
         <Form.Item>
-          {getFieldDecorator("Index", {
+          {getFieldDecorator('Index', {
             rules: [
               {
                 validator(rule, value, callback) {
                   requiredFunc(value, callback);
-                }
-              }
+                },
+              },
             ],
-            validateTrigger: ["onBlur", "onChange"]
+            validateTrigger: ['onBlur', 'onChange'],
           })(
             <InputMask mask="999 999" maskChar={null}>
-              {IndexProps => (
-                <Input {...IndexProps} className="inputPlace small" />
-              )}
-            </InputMask>
+              {IndexProps => <Input {...IndexProps} className="inputPlace small" />}
+            </InputMask>,
           )}
-          <span className="floating-label">{t("Index")}</span>
+          <span className="floating-label">{t('Index')}</span>
         </Form.Item>
 
-        <div style={{ width: "20px" }}></div>
+        <div style={{ width: '20px' }}></div>
         <Form.Item>
-          {getFieldDecorator("City", {
+          {getFieldDecorator('City', {
             rules: [
               {
                 validator(rule, value, callback) {
                   requiredFunc(value, callback);
                   validLangFunc(value, callback);
-                }
-              }
+                },
+              },
             ],
-            validateTrigger: ["onBlur", "onChange"]
+            validateTrigger: ['onBlur', 'onChange'],
           })(<Input className="inputPlace small" />)}
-          <span className="floating-label">{t("Town")}</span>
+          <span className="floating-label">{t('Town')}</span>
         </Form.Item>
       </div>
 
       <div>
         <Form.Item>
-          {getFieldDecorator("Adress", {
+          {getFieldDecorator('Adress', {
             rules: [
               {
                 validator(rule, value, callback) {
                   requiredFunc(value, callback);
                   validLangFunc(value, callback);
-                }
-              }
+                },
+              },
             ],
-            validateTrigger: ["onBlur", "onChange"]
+            validateTrigger: ['onBlur', 'onChange'],
           })(<Input className="inputPlace"></Input>)}
-          <span className="floating-label">{t("Adress")}</span>
+          <span className="floating-label">{t('Adress')}</span>
         </Form.Item>
       </div>
-      
     </Card>
   );
 };
