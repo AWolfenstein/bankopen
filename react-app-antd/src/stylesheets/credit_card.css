@@ -132,3 +132,19 @@ margin-bottom: 21.5px;
      top: 5px;
      right: 5px;
 }
+.Rubl{
+    display: none;
+    position: absolute;
+    font-size: 18px;
+    right: 10px;
+    margin-top: 13px;
+}
+
+input:focus ~ .Rubl,
+input:not([value=""]) ~ .Rubl{
+   display: unset;
+    position: absolute;
+    font-size: 18px;
+    right: 10px;
+    margin-top: 13px;
+}

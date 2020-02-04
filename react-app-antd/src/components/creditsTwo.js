@@ -10,6 +10,7 @@ import {requiredFunc,validLangFunc} from './validFuncs';
 export const CreditsTwo = (props) => {
     const { t } = useTranslation();
     const {getFieldDecorator} = props.form;
+    
     return (
         <Card id="personData">
             <div>

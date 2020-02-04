@@ -1,6 +1,6 @@
 import 'antd/dist/antd.css';
 import React from 'react';
-import {  Form, Input, Card } from 'antd';
+import {  Form, Input, Card,Icon } from 'antd';
 import '../stylesheets/credit_card.css';
 import { CreditsTwo } from './creditsTwo';
 import InputMask from 'react-input-mask';
@@ -18,6 +18,7 @@ const Card_Two = (props) => {
   const bankImgRender = bankImg.issuer && Flag === "RU" ?  <img src={`${process.env.PUBLIC_URL}/img/banks/${bankImg.issuer.code}.svg`} className="bankImg" /> : undefined;
   const flagRender = Flag !== undefined  ?<img src={`${process.env.PUBLIC_URL}/img/flags/${Flag.toLowerCase()}.svg`} className="flagsImg" /> : undefined;
   const payImgRender = payImg !== undefined ? <img src={`${process.env.PUBLIC_URL}/img/paymentSystems/${payImg}.svg`} className="paySysImg" /> : undefined;
+ 
   const creditCard2 = (
     <Card id="creditCard">
      {bankImgRender}
@@ -54,12 +55,13 @@ const Card_Two = (props) => {
             }],
             validateTrigger: ['onBlur', 'onChange'],
           })(
-            <InputMask mask={`${props.mask}`} maskChar={null} onChange={props.abc} >
+            <InputMask mask={`${props.mask}`} maskChar={null} onChange={props.abc}  >
               {(SummProps) => <Input  {...SummProps} className="inputPlace small" id="Amount"  ></Input> }
           </InputMask>
           )}
           
           <span className="floating-label">{t('Amount')}</span>
+          <span className="Rubl">₽</span>
         </Form.Item>
        
       </div>
